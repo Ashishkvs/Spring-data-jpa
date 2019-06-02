@@ -10,6 +10,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name="student_info")
 public class Student {
@@ -20,7 +22,8 @@ public class Student {
 	private String roll;
 	@OneToOne
 	private School school;
-	@OneToMany
+	@OneToMany(mappedBy="studentLaptop")
+	@JsonManagedReference
 	private List<Laptop> laptop;
 	
 	
